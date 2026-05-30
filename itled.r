@@ -1,14 +1,17 @@
-# Creating the dataset directly in R
-sales_data <- data.frame(
-  Product_ID = 101:110,
-  Product_Name = c("Laptop", "Mouse", "Keyboard", "Monitor", "Headphones", 
-                   "Webcam", "USB Cable", "Printer", "Desk Lamp", "Tablet"),
-  Category = c("Electronics", "Accessories", "Accessories", "Electronics", "Accessories", 
-               "Electronics", "Accessories", "Electronics", "Furniture", "Electronics"),
-  Units_Sold = c(15, 50, 40, 20, 35, 25, 100, 10, 30, 18),
-  Revenue = c(15000, 1000, 2000, 4000, 1750, 1250, 500, 2500, 900, 5400),
-  Profit = c(3000, 400, 800, 1000, 500, 300, 150, 600, 300, 1200)
-)
+csv_content <- "Product_ID,Product_Name,Category,Units_Sold,Revenue,Profit
+101,Laptop,Electronics,15,15000,3000
+102,Mouse,Accessories,50,1000,400
+103,Keyboard,Accessories,40,2000,800
+104,Monitor,Electronics,20,4000,1000
+105,Headphones,Accessories,35,1750,500
+106,Webcam,Electronics,25,1250,300
+107,USB Cable,Accessories,100,500,150
+108,Printer,Electronics,10,2500,600
+109,Desk Lamp,Furniture,30,900,300
+110,Tablet,Electronics,18,5400,1200"
+
+# 2. Read the string as if it were a CSV file
+sales_data <- read.csv(textConnection(csv_content))
 
 # Verify the data
 head(sales_data)
